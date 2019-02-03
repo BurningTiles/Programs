@@ -31,4 +31,4 @@
 ```
 
 ---
-Regards BurnigTiles. 
+**Regards BurnigTiles.** 
