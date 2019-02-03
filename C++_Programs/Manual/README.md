@@ -18,8 +18,8 @@
 ~  7.1	WAP to find the mean value of given numbers using friend function.
 
 ~  8.1	WAP to declare a class BOX with length, width and height parameters.   
-	Assign the values and print the values for two object1 and object2   
-	(Outside and inside the class definition).
+        Assign the values and print the values for two object1 and object2   
+        (Outside and inside the class definition).
 
 ---
 Regards BurnigTiles. 
