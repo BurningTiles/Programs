@@ -19,6 +19,6 @@
 ~  8.1	WAP to declare a class BOX with length, width and height parameters. Assign the values and print the values for two object1 and object2 (Outside and inside the class definition).
 
 ---
-```
+```sh
 Regards BurnigTiles. 
 ```
