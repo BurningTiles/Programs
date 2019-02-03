@@ -1,4 +1,3 @@
-Thanks for using  it.
----
+# Thanks for using  it.
 
 Regards BurnigTiles.
