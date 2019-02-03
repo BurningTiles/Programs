@@ -1,6 +1,6 @@
 # List of Programs.
 
-~  1.1 	WAP to print student's name, address, contact number.
+~  1.1  WAP to print student's name, address, contact number.
 
 ~  2.1	WAP for whether the number is odd or even.    
 ~  2.2	WAP to make cakculator using switch case.
