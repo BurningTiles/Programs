@@ -31,17 +31,17 @@ int Newton::set(){
 	y_size=sum(n);
 
 	if(n>20 || n<2){  // Checking the length. You can increase it as per requirement.
-        cout<<endl<<"Enter valid length.";
-        return 1;
+        	cout<<endl<<"Enter valid length.";
+        	return 1;
 	}
 
 	x=new float(n);  //allocation of memory
 	y=new float(y_size); //allocation of memory
 
 	cout<<endl<<"Enter values of x : ";  // Get values for x;
-    for(int xindex=0;xindex<n;xindex++){
-        cin>>*(x+xindex);
-    }
+    	for(int xindex=0;xindex<n;xindex++){
+        	cin>>*(x+xindex);
+    	}
     // checking of values of x.
     h=(*(x+1)-*x);  // Difference between 2 raw value of x, cause this program is for equal interval problems.
     for(int xindex=n-1;xindex>1;xindex--){  // Checking values of x.
@@ -81,7 +81,7 @@ void Newton::FindAnswer(float input){
     for(int index=1;index<n;index++){ // calculating the answer.
         float temp=1;
         for(int i=0;i<index;i++){  // Inline function can be created but for security it's not created.
-            temp=temp*(p-i);
+            	temp=temp*(p-i);
         }
         ans=ans+float((temp*(*(y+y_size-sum(n-index))))/(fact(index)));
     }
@@ -90,7 +90,7 @@ void Newton::FindAnswer(float input){
 float Newton::result(){ return ans; }
 
 void NewtonForwardCalculator(){
-    float input;
+    	float input;
 	if(o.set()!=0){ return; }
 	system("clear");  // It will clear screen. For windows computers replace "clear" with "cls"
 	cout<<endl<<"Enter input value for Function : ";
