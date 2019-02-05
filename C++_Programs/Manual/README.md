@@ -70,8 +70,8 @@
 ![Alt text](https://raw.githubusercontent.com/BurningTiles/Programs/master/C%2B%2B_Programs/Manual/17.1.jpg?raw=true "17.1")
 
 ```
-~ 18.1  Declare a class called item having data members item_code, item_name
-        , cost and discount. Derive two classes from class item, namely
+~ 18.1  Declare a class called item having data members item_code, item_name,
+        cost and discount. Derive two classes from class item, namely
         employee and customer. The class employee has datamembers like
         employee_code, employee_name and amount. The class customer has
         datamembers like customer_name and amount. Define following functions
