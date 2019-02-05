@@ -60,6 +60,7 @@
 ```
 ~ 16.1  WAP to one class to another class type conversion.
 ```
+![alt text](https://raw.githubusercontent.com/BurningTiles/Programs/master/C%2B%2B_Programs/Manual/17.1.jpg)
 
 ---
 **Regards BurnigTiles.** 
