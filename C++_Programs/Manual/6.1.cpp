@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This program is to show overloading of function.
  * In function overloading function have same name but different arguments and maybe different return type.
  * In this progran we will find area of objects of different shape.
@@ -21,31 +21,32 @@ float area(float a,float b,float c){
 int main()
 {
 	int c;  // Declaring variable to check choice.
+	float x,y,z;  // Will be used to store user input values.
 	cout<<"\nSelect shape : "<<endl  // Menu for user for selection.
 		<<"1. Square	2. Rectangle"<<endl
 		<<"3. Circle	4. Triangle \n : ";
 	cin>>c;
 	switch(c){
 		case 1:  // For square.
-			float x;
 			cout<<"\nEnter length of side : ";
 			cin>>x;
 			cout<<"\nArea of given square is "<<area(x);
+			break;
 		case 2:  // For rectangle.
-		    float x,y;
 			cout<<"\nEnter length and width of side : ";
 			cin>>x>>y;
 			cout<<"\nArea of given rectangle is "<<area(x,y);
+			break;
 		case 3:  // For circle.
-		    float x;
 			cout<<"\nEnter radius of circle : ";
 			cin>>x;
 			cout<<"Area of given circle is "<<area(x,'c');
+			break;
 		case 4:  // For Triangle.
-		    float x,y,z;
 			cout<<"\nEnter length of sides : ";
 			cin>>x>>y>>z;
-			cout<<"Area of given square is "<<area(x,y,z);
+			cout<<"Area of given Triangle is "<<area(x,y,z);
+			break;
 		default:
 		    cout<<"Enter valid choice.\n";
 	}
