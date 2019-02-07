@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <cmath>
 #define PI 3.141593
 using namespace std;
 
@@ -14,7 +15,7 @@ float area(float x,float y){ return x*y; }  // For area of a rectangle.
 float area(float x,char c){ return x*x*PI; }  // For area of a circle.
 float area(float a,float b,float c){
 	float m=(a+b+c)/2.0;
-	return (m*(m-a)*(m-b)*(m-c));   // Used formula of finding triangle area using 3 sides.
+	return pow((m*(m-a)*(m-b)*(m-c)),0.5);   // Used formula of finding triangle area using 3 sides.
 }  // For area of triangle.
 
 int main()
