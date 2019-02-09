@@ -91,7 +91,7 @@ float Newton::result(){ return ans; }
 
 void NewtonForwardCalculator(){
     	float input;
-	if(o.set()!=0){ return; }
+	if(o.set()){ return; }
 	system("clear");  // It will clear screen. For windows computers replace "clear" with "cls"
 	cout<<endl<<"Enter input value for Function : ";
 	scanf(" %f",&input); // cin is giving error "double free or curruption (out), Aborted" so used scanf, program will be updated when find issue.
