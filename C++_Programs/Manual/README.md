@@ -79,8 +79,8 @@
         - initializing datamembers.
         - displaying the values of data members.
         - computing amount to be paid for apurchased item. Also define function
-          main to create ovjects of both derived classes and to showusage of
-          abouve functions.
+          main to create objects of both derived classes and to show usage of
+          above functions.
 ```
 ```
 ~ 19.1  WAP to illustrate concept of Function Overriding.
