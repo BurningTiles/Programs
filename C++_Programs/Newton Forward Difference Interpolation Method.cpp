@@ -32,7 +32,7 @@ int Newton::set(){
 
 	if(n>20 || n<2){  // Checking the length. You can increase it as per requirement.
         	cout<<endl<<"Enter valid length.";
-        	return 1;
+        	return -1;
 	}
 
 	x=new float(n);  //allocation of memory
@@ -47,7 +47,7 @@ int Newton::set(){
     for(int xindex=n-1;xindex>1;xindex--){  // Checking values of x.
         if((*(x+xindex)-*(x+xindex-1))!=h){
             cout<<endl<<"Sorry given data is not sequential."<<endl;
-            return 1;
+            return -1;
         }
     }
 
@@ -91,7 +91,7 @@ float Newton::result(){ return ans; }
 
 void NewtonForwardCalculator(){
     	float input;
-	if(o.set()){ return; }
+	if(!o.set()){ return; }
 	system("clear");  // It will clear screen. For windows computers replace "clear" with "cls"
 	cout<<endl<<"Enter input value for Function : ";
 	scanf(" %f",&input); // cin is giving error "double free or curruption (out), Aborted" so used scanf, program will be updated when find issue.
