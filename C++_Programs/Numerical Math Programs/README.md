@@ -1,4 +1,4 @@
-#Instruction of use.
+# Instruction of use.
 
 ```
 ~  For function changes change it in function.h
