@@ -9,7 +9,7 @@
 ```
 ---
 
-# Install instruction
+# Installation instruction
 
 Copy "installacid" and "data" file to any folder.
 Make sure both are in same folder.
