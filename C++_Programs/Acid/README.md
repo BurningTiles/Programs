@@ -23,6 +23,6 @@ Now open terminal and execute command given below for installation.
 
 ---
 
-If any errors occure, kindly report me.
+If any errors occurs, kindly report me.
 
 **Regards Burningtiles.**
