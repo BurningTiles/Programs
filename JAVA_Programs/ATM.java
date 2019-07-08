@@ -1,3 +1,8 @@
+/*
+ * This program is to illustrate the working of ATM to manage money.
+ * It will automatically calculate the required currency and give output.
+ */
+
 import java.util.*;
 
 class ATM {
