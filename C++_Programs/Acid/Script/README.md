@@ -33,5 +33,5 @@ or chose second if installing for all users.
 
 ---
 
-regards
+By
 **BurningTiles**
