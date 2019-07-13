@@ -24,9 +24,7 @@ cp acid /usr/bin/acid
 Give execution permission to file.
 ```
 chmod +rx ~/bin/acid
-```
 or
-```
 chmod +rx /usr/bin/acid
 ```
 Chose first if installing in current user only.
@@ -36,5 +34,4 @@ else chose second if installing for all users.
 ---
 
 regards
-
 **BurningTiles**
