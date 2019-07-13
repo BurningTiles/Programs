@@ -28,7 +28,7 @@ or
 chmod +rx /usr/bin/acid
 ```
 Chose first if installing in current user only.
-else chose second if installing for all users.
+or chose second if installing for all users.
 
 
 ---
