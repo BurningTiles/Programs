@@ -4,7 +4,7 @@ Download the script and put it into the users bin folder(~/bin/) and give execut
 If you want to install it for all user then put into "/usr/bin/" folder.
 
 
-commands:
+# commands:
 ```
 cd "location_of_directory_where_script_downloaded"
 ```
@@ -15,11 +15,11 @@ To install for current user only.
 ```
 cp acid ~/bin/acid
 ```
-
 To install for all users.
 ```
 cp acid /usr/bin/acid
 ```
+
 
 Give execution permission to file.
 ```
@@ -36,4 +36,5 @@ else chose second if installing for all users.
 ---
 
 regards
+
 **BurningTiles**
