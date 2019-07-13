@@ -25,4 +25,4 @@ Now open terminal and execute command given below for installation.
 
 If any errors occurs, kindly report me.
 
-**Regards Burningtiles.**
+Regards **Burningtiles.**
