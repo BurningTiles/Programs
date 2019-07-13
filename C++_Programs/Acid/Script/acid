@@ -1,0 +1,449 @@
+#! /bin/bash
+
+
+# It is especially designed for debian systems and will not work in other systems.
+# It is completely open-source and provided without any warranty or guaranty.
+# You can modify it as you want without any permission.
+# I'm not responsible for any damage to your computer due to this after modification is done by you.
+# I tried to make it as simple as possible and tried to make it efficient.
+# If error come after executing the program means it is segmentation fault. It shows error in script but it there is no error in script.
+# 
+# I created it just for fun and for own usage so maybe it cannot get any new updates.
+
+
+which g++ gcc clang
+if [ "$?" -ne 0 ] 
+then
+	clear
+	echo 
+	echo -e "\033[1;31mGNU compiler not properly installed.\033[1;36m"
+	echo
+	read -n1 -p "Do you want to install? [y/n] : " installchoice
+	if [ "$installchoice" = 'y' -o "$installchoice" = 'Y' ] 
+	then
+		clear
+		echo 
+		echo -e "\033[1;32mInstallation started"
+		sudo apt-get update
+		if [ "$?" = 0 ] 
+		then
+			sudo apt-get install build-essential g++ gcc clang
+			if [ "$?" = 0 ] 
+			then
+				clear
+				echo 
+				echo -e "\033[1;32mInstalled successfully."
+				echo
+			else
+				clear
+				echo 
+				echo -e "\033[1;31mInstallation Aborted."
+				echo -e "\033[1;36mPlease check internet connection."
+				exit
+			fi
+		else
+			clear
+			echo 
+			echo -e "\033[1;31mInstallation Aborted."
+			echo -e "\033[1;36mPlease check internet connection."
+			exit
+		fi
+	else
+		exit
+	fi
+fi
+clear
+echo -e "\033[1;36mWelcome to ACID"
+echo "For easy run, compile and test your c/c++ programs."
+echo -e "By \033[1;32mManish."
+echo 
+echo -e "\033[1;35mNew[n] \033[1;37mor \033[1;32mExisting[e]\033[1;37m [n/e]"
+read -n1 -p "> " new
+echo 
+read -p "Enter program file name : " input
+newf=0
+if [ "$new" = 'n' -o "$new" = 'N' ] 
+then
+	if [ -f "$input" ] 
+	then
+		echo -e "\033[1;35mFile already exist. Opening it."
+	else
+		touch "$input"
+		if [ "$?" -ne 0 ] 
+		then
+			clear
+			echo -e "\033[1;31mUnable to create file, try again."
+			exit
+		fi
+		newf=1
+	fi
+fi
+
+#d="$(dirname "${0}")"
+#sd="$(dirname "${in_file}")"
+#fd=""$d"/"$sd""
+#cd "$fd"
+#input=$(basename "$in_file")
+
+if [ -f "$input" ] 
+then
+	file_type="Unknown"
+	case "$input" in
+		*.c)
+			file_type="c"
+			output=""${input::-2}"".out""
+			;;
+		*.cpp)
+			file_type="cpp"
+			output=""${input::-4}"".out""
+			;;
+		*.C)
+			file_type="cpp"
+			output=""${input::-2}"".out""
+			;;
+		*.cp)
+			file_type="cpp"
+			output=""${input::-3}"".out""
+			;;
+		*.cxx)
+			file_type="cpp"
+			output=""${input::-4}"".out""
+			;;
+		*.cc)
+			file_type="cpp"
+			output=""${input::-3}"".out""
+			;;
+		*.CPP)
+			file_type="cpp"
+			output=""${input::-4}"".out""
+			;;
+		*.h)
+			file_type="h"
+			output=""${input::-2}"".out""
+			;;
+		*.hh)
+			file_type="hh"
+			output=""${input::-3}"".out""
+			;;
+		*.hpp)
+			file_type="hpp"
+			output=""${input::-4}"".out""
+			;;
+		*.hxx)
+			file_type="hxx"
+			output=""${input::-4}"".out""
+			;;
+		*)
+			echo -e "\033[1;31mPlease check file extension and try again.\033[0;37m"
+			if [ "$newf" = 1 ] 
+			then
+				rm "$input"
+				
+			fi
+			exit
+			;;
+	esac
+	while true
+	do
+		echo 
+		echo -e "\033[1;35mc-compile  \033[1;36mr-run  \033[1;32mx-compile&run  \033[1;33me-edit  \033[1;31mq-quit\033[0m"
+		echo
+		read -n1 -p """$input""> " choice
+		
+		clear
+		
+		if [ "$choice" = 'x' ] 
+		then
+			if [ "$file_type" = "h" -o "$file_type" = "hh" -o "$file_type" = "hpp" -o "$file_type" = "hxx" ] 
+			then
+				echo 
+				echo -e "\033[1;36mHeader file cannot be run individually."
+			fi
+			if [ "$file_type" = 'c' ] 
+			then
+				gcc "$input" -o "$output"
+			else
+				g++ "$input" -o "$output"
+			fi
+			if [ "$?" = 0 ] 
+			then
+				echo -e "\033[1;32mProgram compiled successfully."
+				echo -e "\033[1;36mExecuting the program.\033[1;37m"
+				echo 
+				./"$output"
+				state="$?"
+				if [ "$state" = 0 ] 
+				then
+					echo 
+					echo -e "\033[1;32mProgram executed successfully."
+				else
+					echo
+					echo -e "\033[1;31mProgram executed unsuccessfully."
+					echo -e "\033[1;35merror code \033[1;36m$state"
+				fi
+			else
+				echo 
+				echo -e "\033[1;31mErrors in compiling the program."
+				echo -e "\033[1;36mErrors listed above."
+			fi
+		elif [ "$choice" = 'r' ] 
+		then
+			if [ "$file_type" = "h" -o "$file_type" = "hh" -o "$file_type" = "hpp" -o "$file_type" = "hxx" ] 
+			then
+				echo 
+				echo -e "\033[1;36mHeader file cannot be run individually."
+			fi
+			if [ -f "$output" ] 
+			then
+				echo -e "\033[1;32mExecuting the program.\033[1;37m"
+				echo
+				./"$output"
+				state="$?"
+				if [ "$state" = 0 ] 
+				then
+					echo 
+					echo -e "\033[1;32mProgram executed successfully."
+				else
+					echo
+					echo -e "\033[1;31mProgram executed unsuccessfully."
+					echo -e "\033[1;35merror code \033[1;36m$state"
+				fi
+			else
+				echo -e "\033[1;35mFirst compile the program."
+			fi
+		elif [ "$choice" = 'c' ] 
+		then
+			if [ "$file_type" = "h" -o "$file_type" = "hh" -o "$file_type" = "hpp" -o "$file_type" = "hxx" ] 
+			then
+				echo 
+				echo -e "\033[1;36mHeader file cannot be compiled individually."
+			fi
+			if [ "$file_type" = 'c' ] 
+			then
+				gcc "$input" -o "$output"
+			else
+				g++ "$input" -o "$output"
+			fi
+			if [ "$?" = 0 ] 
+			then
+				echo -e "\033[1;32mProgram compiled successfully."
+			else
+				echo 
+				echo -e "\033[1;31mErrors in compiling the program."
+				echo -e "\033[1;36mErrors listed above."
+			fi
+		elif [ "$choice" = 'e' ] 
+		then
+			clear
+			echo -e "\033[1;36mYou can directly use these command from main menu also."
+			echo 
+			echo -e "\033[1;32mv-Vim"
+			echo -e "\033[1;95mn-Nano"
+			echo -e "\033[1;36mp-Pluma"
+			echo -e "\033[1;37ml-Leafpad"
+			echo -e "\033[1;34ma-Atom"
+			echo -e "\033[1;33mo-Code::Blocks"
+			echo -e "\033[1;31mg-Geany"
+		elif [ "$choice" = 'v' ] 
+		then
+			which vim
+			if [ "$?" = 0 ] 
+			then
+				gnome-terminal -e "vi "$input""
+				clear
+			else
+				echo -e "\033[1;31mVim is not installed.\033[1;32m"
+				read -n1 -p "Would you like to install it? [y/n] : " choice
+				if [ "$choice" = 'y' -o "$choice" = 'Y' ] 
+				then
+					echo -e "\033[1;36mInstallation started."
+					sudo apt-get install vim
+					if [ "$?" = 0 ] 
+					then
+						clear
+						echo 
+						echo -e "\033[1;32mVim installed successfully."
+					else
+						clear
+						echo 
+						echo -e "\033[1;31mInstallation Aborted."
+						echo -e "\033[1;36mPlease check internet connection."
+					fi
+				fi
+			fi
+		elif [ "$choice" = 'n' ] 
+		then
+			which nano
+			if [ "$?" = 0 ] 
+			then
+				gnome-terminal -e "nano "$input""
+				clear
+			else
+				echo -e "\033[1;31mNano is not installed.\033[1;32m"
+				read -n1 -p "Would you like to install it? [y/n] : " choice
+				if [ "$choice" = 'y' -o "$choice" = 'Y' ] 
+				then
+					echo -e "\033[1;36mInstallation started."
+					sudo apt-get install nano
+					if [ "$?" = 0 ] 
+					then
+						clear
+						echo 
+						echo -e "\033[1;32mNano installed successfully."
+					else
+						clear
+						echo 
+						echo -e "\033[1;31mInstallation Aborted."
+						echo -e "\033[1;36mPlease check internet connection."
+					fi
+				fi
+			fi
+		elif [ "$choice" = 'p' ] 
+		then
+			which pluma
+			if [ "$?" = 0 ] 
+			then
+				tmux new -d "pluma "$input""
+				clear
+			else
+				echo -e "\033[1;31mPluma is not installed.\033[1;32m"
+				read -n1 -p "Would you like to install it? [y/n] : " choice
+				if [ "$choice" = 'y' -o "$choice" = 'Y' ] 
+				then
+					echo -e "\033[1;36mInstallation started."
+					sudo apt-get install pluma
+					if [ "$?" = 0 ] 
+					then
+						clear
+						echo 
+						echo -e "\033[1;32mPluma installed successfully."
+					else
+						clear
+						echo 
+						echo -e "\033[1;31mInstallation Aborted."
+						echo -e "\033[1;36mPlease check internet connection."
+					fi
+				fi
+			fi
+		elif [ "$choice" = 'l' ] 
+		then
+			which leafpad
+			if [ "$?" = 0 ] 
+			then
+				tmux new -d "leafpad "$input""
+				clear
+			else
+				echo -e "\033[1;31mLeafpad is not installed.\033[1;32m"
+				read -n1 -p "Would you like to install it? [y/n] : " choice
+				if [ "$choice" = 'y' -o "$choice" = 'Y' ] 
+				then
+					echo -e "\033[1;36mInstallation started."
+					sudo apt-get install leafpad
+					if [ "$?" = 0 ] 
+					then
+						clear
+						echo 
+						echo -e "\033[1;32mLeafpad installed successfully."
+					else
+						clear
+						echo 
+						echo -e "\033[1;31mInstallation Aborted."
+						echo -e "\033[1;36mPlease check internet connection."
+					fi
+				fi
+			fi
+		elif [ "$choice" = 'a' ] 
+		then
+			which atom
+			if [ "$?" = 0 ] 
+			then
+				atom "$input"
+				clear
+			else
+				echo -e "\033[1;31mAtom is not installed.\033[1;32m"
+				read -n1 -p "Would you like to install it? [y/n] : " choice
+				if [ "$choice" = 'y' -o "$choice" = 'Y' ] 
+				then
+					echo -e "\033[1;36mInstallation started."
+					sudo apt-get install atom
+					if [ "$?" = 0 ] 
+					then
+						clear
+						echo 
+						echo -e "\033[1;32mAtom installed successfully."
+					else
+						clear
+						echo 
+						echo -e "\033[1;31mInstallation Aborted."
+						echo -e "\033[1;36mPlease check internet connection."
+					fi
+				fi
+			fi
+		elif [ "$choice" = 'o' ] 
+		then
+			which codeblocks
+			if [ "$?" = 0 ] 
+			then
+				tmux new -d "codeblocks "$input""
+				clear
+			else
+				echo -e "\033[1;31mCode::Blocks is not installed.\033[1;32m"
+				read -n1 -p "Would you like to install it? [y/n] : " choice
+				if [ "$choice" = 'y' -o "$choice" = 'Y' ] 
+				then
+					echo -e "\033[1;36mInstallation started."
+					sudo apt-get install codeblocks
+					if [ "$?" = 0 ] 
+					then
+						clear
+						echo 
+						echo -e "\033[1;32mCode::Blocks installed successfully."
+					else
+						clear
+						echo 
+						echo -e "\033[1;31mInstallation Aborted."
+						echo -e "\033[1;36mPlease check internet connection."
+					fi
+				fi
+			fi
+		elif [ "$choice" = 'g' ] 
+		then
+			which geany
+			if [ "$?" = 0 ] 
+			then
+				tmux new -d "geany "$input""
+				clear
+			else
+				echo -e "\033[1;31mGeany is not installed.\033[1;32m"
+				read -n1 -p "Would you like to install it? [y/n] : " choice
+				if [ "$choice" = 'y' -o "$choice" = 'Y' ] 
+				then
+					echo -e "\033[1;36mInstallation started."
+					sudo apt-get install geany
+					if [ "$?" = 0 ] 
+					then
+						clear
+						echo 
+						echo -e "\033[1;32mGeany installed successfully."
+					else
+						clear
+						echo 
+						echo -e "\033[1;31mInstallation Aborted."
+						echo -e "\033[1;36mPlease check internet connection."
+					fi
+				fi
+			fi
+		elif [ "$choice" = 'q' ] 
+		then
+			exit
+		else
+			echo 
+			echo -e "\033[1;31mUnknown choice."
+		fi
+	done
+else
+	echo -e "\033[1;31mFile not found."
+	echo -e "\033[1;36mTry again."
+fi
+
+
