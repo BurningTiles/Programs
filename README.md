@@ -11,7 +11,7 @@
 It contains basic programs for understanding programming concepts and logic.
 ```
 ### Team members
-<a href="https://instagram.com/BurningTiles" target="_blank">Manish Kumawat</a>
+<a href="https://instagram.com/_manish7" target="_blank">Manish Kumawat</a>
 
 
 
