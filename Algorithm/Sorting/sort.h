@@ -48,8 +48,64 @@ void bubbleSort(int x[],int n){
 				swap(x[j],x[j+1]);
 			flag = false;  //  Change flag.
 		}
-		if(flag) break;  //  If array sorted then terminate.
+		if (flag) break;  //  If array sorted then terminate.
 	}
+}
+
+
+
+//  ======================================================
+//  Function to sort array using insertion sort algorithm.
+//  ======================================================
+void insertionSort(int x[],int n){
+	for (int i=0; i<n-1; i++)  //  Loop to traverse in array.
+		if (x[i]>x[i+1]){  //  Check if greater value before smaller value.
+			swap(x[i],x[i+1]);  //  Swap value.
+			for (int j=i-1; j>=0; j--)  //  Loop to transfer value at proper position.
+				if(x[j]>x[j+1])
+					swap(x[j],x[j+1]);
+		}
+}
+
+
+
+//  ==================================================
+//  Function to sort array using merge sort algorithm.
+//  ==================================================
+void merge(int x[],int start,int mid,int end){  //  Function to merge two parts.
+	int left = mid-start+1,right = end-mid;  //  Finding length of first and second part called left and  right.
+	int a[left],b[right];  //  Declared two array, a is left part and b is right part.
+	
+	for (int i=0,j=start ; i<left ; i++,j++)  //  Copy value of first part in a.
+		a[i]=x[j];
+	for (int i=0,j=mid+1 ; i<right; i++,j++)  //  Copy value of second part in b.
+		b[i]=x[j];
+		
+	for (int i=0,j=0,k=start; i<left || j<right ; ){  //  For loop to put all values in main array.
+		if (i<left && j<right){  //  If non of part reached end then compare it and save small value in main array.
+			if(a[i]<b[j])
+				x[k++]=a[i++];
+			else
+				x[k++]=b[j++];
+		}
+		else if(i<left)  //  If second(b) part reached end then save values from first(a) part.
+			x[k++]=a[i++];
+		else  //  If first(a) part reached end then save values from second(b) part.
+			x[k++]=b[j++];
+	}
+}
+
+void mergeSort(int x[],int start,int end){  //  main merge function to divide array in two parts.
+	if (start<end){  //  If array size is greater then 
+		int mid = (start+end)/2;  //  Find mid of start and end.
+		mergeSort(x,start,mid);   //  Sort first half part.
+		mergeSort(x,mid+1,end);   //  Sort second half part.
+		merge(x,start,mid,end);   //  Merge both parts.
+	}
+}
+
+void mergeSort(int x[],int n){  //  Call main mergeSort function. Cause this function is general function.
+	mergeSort(x,0,n-1);
 }
 
 
