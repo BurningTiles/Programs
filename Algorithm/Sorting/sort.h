@@ -10,6 +10,7 @@
  * swap(int &,int &)
  * selectionSort (int[],int)
  * bubbleSort    (int[],int)
+ * mergeSort     (int[],int)  or  mergeSort(int[],int <starting_position>,int <ending_position>])
  */
 
 #ifndef SORT_H
@@ -95,8 +96,8 @@ void merge(int x[],int start,int mid,int end){  //  Function to merge two parts.
 	}
 }
 
-void mergeSort(int x[],int start,int end){  //  main merge function to divide array in two parts.
-	if (start<end){  //  If array size is greater then 
+void mergeSort(int x[],int start,int end){  //  main merge function to sort array.
+	if (start<end){  //  If condition to be executed when array size is greater than 0, else it will be terminated.
 		int mid = (start+end)/2;  //  Find mid of start and end.
 		mergeSort(x,start,mid);   //  Sort first half part.
 		mergeSort(x,mid+1,end);   //  Sort second half part.
