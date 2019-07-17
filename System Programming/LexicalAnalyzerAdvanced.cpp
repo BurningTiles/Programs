@@ -261,6 +261,8 @@ void save(){
 
 	for (int i=0; i<_string.size()      ; i++)
 		fstring<<_string[i]<<endl;
+	
+	cout<<endl<<"Saved Successfully."<<endl<<endl;
 }
 
 
