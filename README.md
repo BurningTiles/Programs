@@ -12,7 +12,6 @@ It contains basic programs for understanding programming concepts and logic.
 ```
 ### Team members
 <a href="https://github.com/BurningTiles" target="_blank">Manish Kumawat</a>  
-<a href="https://github.com/KandarpXRaiden" target="_blank">Kandarp Vyas</a>
 
 
 
