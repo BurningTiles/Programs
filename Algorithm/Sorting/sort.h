@@ -10,7 +10,8 @@
  * swap(int &,int &)
  * selectionSort (int[],int)
  * bubbleSort    (int[],int)
- * mergeSort     (int[],int)  or  mergeSort(int[],int <starting_position>,int <ending_position>])
+ * mergeSort     (int[],int)  or  mergeSort(int[],int <starting_position>,int <ending_position>)
+ * quickSort     (int[],int)  or quickSort(int[],int <starting_position>,int <ending_position>)
  */
 
 #ifndef SORT_H
@@ -60,7 +61,7 @@ void bubbleSort(int x[],int n){
 //  ======================================================
 void insertionSort(int x[],int n){
 	for (int i=1; i<n; i++)  //  Loop to traverse in array.
-		for (int j=i; j>0; j--)  //  Second loop to move value to it's postion.
+		for (int j=i; j>0; j--)  //  Second loop move value to it's postion.
 			if(x[j]<x[j-1])  //  If it is not in sequence then it will be swapped.
 				swap(x[j],x[j-1]);
 }
@@ -105,6 +106,32 @@ void mergeSort(int x[],int start,int end){  //  main merge function to sort arra
 void mergeSort(int x[],int n){  //  Call main mergeSort function. Cause this function is general function.
 	mergeSort(x,0,n-1);
 }
+
+
+
+//  ==================================================
+//  Function to sort array using quick sort algorithm.
+//  ==================================================
+void quickSort(int x[],int start,int end){
+	if(start<end){  //  It will executed if start is lessthan end.
+		int i=start+1,j=end;  //  Initialize i and j, value of i is i+1 cause we are considering starting element as pivot.
+		while (i<j) {  //  It will be executed till i is lessthan j.
+			while (x[i]<x[start] && i<=end ) i++;  //  Start finding element from left to right which is greaterthan pivot. 
+			while (x[j]>x[start] && j>start) j--;  //  Start finding element from right to left which is lessthan pivot.
+			if (i<j) swap(x[i],x[j]);  //  If x[i] is lessthan x[j] then swap it.
+			else swap(x[start],x[j]);  //  Else swap pivot with x[j].
+		}
+		//  Now pivot is fixed at position so sort remained.
+		quickSort(x, start, j-1);  //  Now sort left portion from pivot. 
+		quickSort(x, j+1  , end);  //  Sort right portion
+	}
+}
+
+void quickSort(int x[],int n){  //  Calling main quickSort function.
+	quickSort(x,0,n-1);
+}
+
+
 
 
 #endif
