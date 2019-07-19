@@ -11,7 +11,7 @@
  * selectionSort (int[],int)
  * bubbleSort    (int[],int)
  * mergeSort     (int[],int)  or  mergeSort(int[],int <starting_position>,int <ending_position>)
- * quickSort     (int[],int)  or quickSort(int[],int <starting_position>,int <ending_position>)
+ * quickSort     (int[],int)  or  quickSort(int[],int <starting_position>,int <ending_position>)
  */
 
 #ifndef SORT_H
