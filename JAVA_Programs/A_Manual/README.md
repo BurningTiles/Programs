@@ -53,4 +53,4 @@
 ```
 
 ---
-**Any suggestion will be apprecialted.**
+**Any suggestion will be appreciated.**
