@@ -18,7 +18,7 @@ class Program5_2 {
 			
 			int x = i<=n? i : 2*n-i ;  //  Logic for finding value of particular line.
 			
-			for ( int j=1; j<n-x+1; j++ )
+			for ( int j=1; j<=n-x ; j++ )
 				System.out.print(" " );
 			
 			for ( int j=1; j<=x   ; j++ )
