@@ -1,4 +1,5 @@
 /*
+ * All programs are listed in GTU syllabus.
  * General java file for all classes for easy management.
  * Importing java.util for required classes like Scanner.
  */
@@ -158,7 +159,7 @@ class C {
 
 class D {
 
-	public static void main(String[] argss) {
+	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
 		
@@ -235,7 +236,7 @@ class E {
  * Program to count the number of words that start with capital letters.
  */
 
-class F {  // class x6
+class F {  
 
 	public static void main(String[] args){  //  main method.
 	
@@ -256,8 +257,10 @@ class F {  // class x6
 			
 				ch = str.charAt(i);  //  Storing char from string for testing.
 				
-				if( flag == true && ch>='A' && ch<='Z' )  //  Conditions to find word with capital letters.
+				if( flag == true && ch>='A' && ch<='Z' ){  //  Conditions to find word with capital letters.
 					count++;
+					flag = false;
+				}
 				else if( (ch==' ') || (ch==',') || (ch=='.') )
 					flag = true;
 				else 
@@ -287,7 +290,7 @@ class F {  // class x6
  * Program to find that given number or string is palindrome or not.
  */
 
-class G {  //  class x7
+class G { 
 	
 	public static void main(String[] args){  //  main method.
 		
@@ -295,7 +298,7 @@ class G {  //  class x7
 		
 		System.out.println("Enter data.\n");
 		
-		String str = in.nextLine();  //  Declaring and initializing variables.
+		String str = in.nextLine();  //  Declaring and initializing String.
 		int length = str.length();
 		boolean flag = true;
 		
@@ -329,7 +332,7 @@ class G {  //  class x7
  * Program to count vowels for all sentences.
  */
 
-class H {  //  class x8
+class H { 
 	
 	public static void main(String[] args){  //  main method.
 		
@@ -380,7 +383,7 @@ class H {  //  class x8
  * Program to print a string entered in a pyramid form.
  */
 
-class I {  //  class x9
+class I { 
 	
 	public static void main(String[] args) {  //  main method
 	
@@ -421,7 +424,7 @@ class I {  //  class x9
  * Program to print diamond pattern.
  */
 
-class J {  //  class x10
+class J { 
 	
 	public static void main(String[] args){  //  main method
 	
