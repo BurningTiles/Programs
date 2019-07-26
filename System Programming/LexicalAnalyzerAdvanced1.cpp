@@ -3,7 +3,7 @@
  * It is for source code written in c language.
  * I've tried to make it as good as real.
  * I know there are too many exeptions, and maybe it'll be solved later when i've free time.
- * It will not work properly in windows, an unknown issue of infinite loop.
+ * This program is os independent.
  * In linux for me it works perfectly.
  */
 
