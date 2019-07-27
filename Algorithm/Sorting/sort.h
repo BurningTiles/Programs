@@ -31,10 +31,13 @@ void swap(int &a,int &b){
 //  Function to sort array using selection sort algorithm.
 //  ======================================================
 void selectionSort(int x[],int n){
-	for (int i=0; i<n; i++)  //  First for loop for iterations.
-		for (int j=i+1; j<n; j++)  //  Second for loop set minimum value at corresponding place.
-			if (x[j]<x[i])  //  Comparing value and swap if required.
-				swap(x[j],x[i]);
+	for (int i=0; i<n; i++){  //  First for loop for iterations.
+		int min=i;
+		for (int j=i+1; j<n; j++)  //  Second for loop to find minimum value.
+			if (x[j]<x[min]) 
+				min=j;
+		swap(x[i],x[min]);  //  Swap value with min value.
+	}
 }
 
 
