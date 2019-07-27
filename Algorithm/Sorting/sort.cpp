@@ -17,7 +17,7 @@ int main(){
 	cout<<"Array before sorting : ";
 	print(array,size);  //  Printing array.
 	
-	bubbleSort(array,size);  //  Calling sorting function to sort array.
+	insertionSort(array,size);  //  Calling sorting function to sort array.
 	
 	cout<<"Array after sorting : ";
 	print(array,size);  //  Printing array.

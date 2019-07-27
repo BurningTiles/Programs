@@ -60,10 +60,14 @@ void bubbleSort(int x[],int n){
 //  Function to sort array using insertion sort algorithm.
 //  ======================================================
 void insertionSort(int x[],int n){
-	for (int i=1; i<n; i++)  //  Loop to traverse in array.
-		for (int j=i; j>0; j--)  //  Second loop move value to it's postion.
-			if(x[j]<x[j-1])  //  If it is not in sequence then it will be swapped.
-				swap(x[j],x[j-1]);
+	for (int i=1; i<n; i++){  //  Loop to traverse in array.
+		int j=i-1,key=x[i];
+		while(j>=0 && x[j]>key){
+			x[j+1]=x[j];
+			j--;
+		}
+		x[j+1]=key;
+	}
 }
 
 
