@@ -61,12 +61,12 @@ void bubbleSort(int x[],int n){
 //  ======================================================
 void insertionSort(int x[],int n){
 	for (int i=1; i<n; i++){  //  Loop to traverse in array.
-		int j=i-1,key=x[i];
-		while(j>=0 && x[j]>key){
-			x[j+1]=x[j];
+		int j=i-1,key=x[i];  //  Initializing j and storing element in key which will be inserted.
+		while(j>=0 && x[j]>key){  //  While key is less than values in list move it.
+			x[j+1]=x[j];  
 			j--;
 		}
-		x[j+1]=key;
+		x[j+1]=key;  //  Insert element at it's place.
 	}
 }
 
