@@ -11,7 +11,7 @@ void print(int x[],int n){
 }
 
 int main(){
-	int array[]={83,13,34,1,6,123,646,1236,7245,23,7,96,244};  //  Declaring an array with values.
+	int array[]={23,24,72,44,17,32,38,89,58,84,40,28,87,2,46,96,92,26,75,86};  //  Declaring an array with values.
 	int size = sizeof(array)/sizeof(int);  //  Finding size of array.
 	
 	cout<<"Array before sorting : ";
