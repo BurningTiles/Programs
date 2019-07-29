@@ -130,18 +130,25 @@ void mergeSort(__data_type x[],__iterator n){  //  Call main mergeSort function.
 //  Function to sort array using quick sort algorithm.
 //  ==================================================
 template<typename __data_type>
+__iterator partition(__data_type x[],__iterator start,__iterator end){
+		__data_type pivot = x[end];  //  Considering last element as pivot.
+		__iterator i=start;  //  Set i to start.
+		for (__iterator j=start; j<end; j++){  //  Traverse in array.
+			if (x[j]<=pivot){  //  Condition to set all lower value than pivot on left side of array.
+				swap(x[i],x[j]);  //  Swap lower value with higher.
+				i++;
+			}
+		}
+		swap(x[i],x[end]);  //  Swap last element at it's position.
+		return i;  //  return i
+}
+		
+template<typename __data_type>
 void quickSort(__data_type x[],__iterator start,__iterator end){
 	if(start<end){  //  It will executed if start is lessthan end.
-		__iterator i=start+1,j=end;  //  Initialize i and j, value of i is i+1 cause we are considering starting element as pivot.
-		while (i<j) {  //  It will be executed till i is lessthan j.
-			while (x[i]<x[start] && i<=end ) i++;  //  Start finding element from left to right which is greaterthan pivot. 
-			while (x[j]>x[start] && j>start) j--;  //  Start finding element from right to left which is lessthan pivot.
-			if (i<j) swap(x[i],x[j]);  //  If x[i] is lessthan x[j] then swap it.
-			else swap(x[start],x[j]);  //  Else swap pivot with x[j].
-		}
-		//  Now pivot is fixed at position so sort remained.
-		quickSort(x, start, j-1);  //  Now sort left portion from pivot. 
-		quickSort(x, j+1  , end);  //  Sort right portion
+		__iterator mid = partition (x,start,end);
+		quickSort(x, start, mid-1);  //  Now sort left portion from pivot. 
+		quickSort(x, mid+1  , end);  //  Sort right portion
 	}
 }
 
