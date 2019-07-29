@@ -3,15 +3,16 @@
  * After including directly pass array to the sorting functiono which you want to use and size array.
  * General function calling is as follows : [algoName]Sort( array_of_integer , size_of_array )
  * Make sure you write proper identifier_name when you call functions.
+ * It contains all generic functions so array of any data type can be sorted in it.
  * 
  *
  * Summery of functions.
  *
- * swap(int &,int &)
- * selectionSort (int[],int)
- * bubbleSort    (int[],int)
- * mergeSort     (int[],int)  or  mergeSort(int[],int <starting_position>,int <ending_position>)
- * quickSort     (int[],int)  or  quickSort(int[],int <starting_position>,int <ending_position>)
+ * swap( value1 , value2 )
+ * selectionSort (array[],length)
+ * bubbleSort    (array[],length)
+ * mergeSort     (array[],length)  or  mergeSort(array[] , <starting_position> , <ending_position>)
+ * quickSort     (array[],length)  or  quickSort(array[] , <starting_position> , <ending_position>)
  */
 
 #ifndef SORT_H
