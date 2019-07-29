@@ -1,26 +1,45 @@
 #include <iostream>
+#include <fstream>
 #include "sort.h"
 using namespace std;
 
-//  Function to print array.
-void print(int x[],int n){
-	cout<<"\n[ ";
-	for (int i=0; i<n; i++)  //  Loop for printing values.
-		cout<<x[i]<<" ";
-	cout<<"]"<<endl;
-}
 
 int main(){
-	int array[]={83,13,34,1,6,123,646,1236,7245,23,7,96,244};  //  Declaring an array with values.
-	int size = sizeof(array)/sizeof(int);  //  Finding size of array.
-	
-	cout<<"Array before sorting : ";
-	print(array,size);  //  Printing array.
-	
-	insertionSort(array,size);  //  Calling sorting function to sort array.
-	
-	cout<<"Array after sorting : ";
-	print(array,size);  //  Printing array.
-	
+	ifstream in("input.txt");
+	ofstream out("output.txt");
+
+	if (in.fail()){
+		cerr<<"Error in openning input file."<<endl;
+		return -1;
+	}
+	if (out.fail()){
+		cerr<<"Error in creating output file."<<endl;
+		return -2;
+	}
+
+	int n;
+	if ( ! (in >> n)) {
+		cerr << "Reading number failed!\n";
+		return -3;
+	}
+
+	if (n<1){
+		cerr<<"Sorting not possible on less than 1 element."<<endl;
+		return -4;
+	}
+
+	int x[n];
+	for (int i=0; i<n; i++){
+		if(!(in>>x[i])){
+			cerr<<"Error in reading number."<<endl;
+			return -5;
+		}
+	}
+
+	quickSort(x,n);
+
+	for (int i=0; i<n; i++)
+		out<<x[i]<<"\n";
+
 	return 0;
 }

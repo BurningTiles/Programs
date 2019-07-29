@@ -17,10 +17,12 @@
 #ifndef SORT_H
 #define SORT_H
 
+#define __iterator long long int
 
 // Creating swap fuction, which is used in many sorting functions.
-void swap(int &a,int &b){
-	int temp = a;
+template<typename __data_type>
+void swap(__data_type &a,__data_type &b){
+	__data_type temp = a;
 	a = b;
 	b = temp;
 }
@@ -30,10 +32,11 @@ void swap(int &a,int &b){
 //  ======================================================
 //  Function to sort array using selection sort algorithm.
 //  ======================================================
-void selectionSort(int x[],int n){
-	for (int i=0; i<n; i++){  //  First for loop for iterations.
-		int min=i;
-		for (int j=i+1; j<n; j++)  //  Second for loop to find minimum value.
+template<typename __data_type>
+void selectionSort(__data_type x[],__iterator n){
+	for (__iterator i=0; i<n; i++){  //  First for loop for iterations.
+		__iterator min=i;
+		for (__iterator j=i+1; j<n; j++)  //  Second for loop to find minimum value.
 			if (x[j]<x[min]) 
 				min=j;
 		swap(x[i],x[min]);  //  Swap value with min value.
@@ -45,10 +48,11 @@ void selectionSort(int x[],int n){
 //  ===================================================
 //  Function to sort array using bubble sort algorithm.
 //  ===================================================
-void bubbleSort(int x[],int n){
-	for (int i=0; i<n-1; i++){  //  First loop for iterations.
+template<typename __data_type>
+void bubbleSort(__data_type x[],__iterator n){
+	for (__iterator i=0; i<n-1; i++){  //  First loop for iterations.
 		bool flag = true;  //  Flag to check if array sorted then loop will terminated.
-		for (int j=0; j<n-i-1; j++){  //  Loop for comparing values.
+		for (__iterator j=0; j<n-i-1; j++){  //  Loop for comparing values.
 			if(x[j]>x[j+1])  //  Compare and swap value if required.
 				swap(x[j],x[j+1]);
 			flag = false;  //  Change flag.
@@ -62,9 +66,11 @@ void bubbleSort(int x[],int n){
 //  ======================================================
 //  Function to sort array using insertion sort algorithm.
 //  ======================================================
-void insertionSort(int x[],int n){
-	for (int i=1; i<n; i++){  //  Loop to traverse in array.
-		int j=i-1,key=x[i];  //  Initializing j and storing element in key which will be inserted.
+template<typename __data_type>
+void insertionSort(__data_type x[],__iterator n){
+	for (__iterator i=1; i<n; i++){  //  Loop to traverse in array.
+		__iterator j=i-1;
+		__data_type key=x[i];  //  Initializing j and storing element in key which will be inserted.
 		while(j>=0 && x[j]>key){  //  While key is less than values in list move it.
 			x[j+1]=x[j];  
 			j--;
@@ -78,16 +84,17 @@ void insertionSort(int x[],int n){
 //  ==================================================
 //  Function to sort array using merge sort algorithm.
 //  ==================================================
-void merge(int x[],int start,int mid,int end){  //  Function to merge two parts.
-	int left = mid-start+1,right = end-mid;  //  Finding length of first and second part called left and  right.
-	int a[left],b[right];  //  Declared two array, a is left part and b is right part.
+template<typename __data_type>
+void merge(__data_type x[],__iterator start,__iterator mid,__iterator end){  //  Function to merge two parts.
+	__iterator left = mid-start+1,right = end-mid;  //  Finding length of first and second part called left and  right.
+	__data_type a[left],b[right];  //  Declared two array, a is left part and b is right part.
 	
-	for (int i=0,j=start ; i<left ; i++,j++)  //  Copy value of first part in a.
+	for (__iterator i=0,j=start ; i<left ; i++,j++)  //  Copy value of first part in a.
 		a[i]=x[j];
-	for (int i=0,j=mid+1 ; i<right; i++,j++)  //  Copy value of second part in b.
+	for (__iterator i=0,j=mid+1 ; i<right; i++,j++)  //  Copy value of second part in b.
 		b[i]=x[j];
 		
-	for (int i=0,j=0,k=start; i<left || j<right ; ){  //  For loop to put all values in main array.
+	for (__iterator i=0,j=0,k=start; i<left || j<right ; ){  //  For loop to put all values in main array.
 		if (i<left && j<right){  //  If non of part reached end then compare it and save small value in main array.
 			if(a[i]<b[j])
 				x[k++]=a[i++];
@@ -101,16 +108,18 @@ void merge(int x[],int start,int mid,int end){  //  Function to merge two parts.
 	}
 }
 
-void mergeSort(int x[],int start,int end){  //  main merge function to sort array.
+template<typename __data_type>
+void mergeSort(__data_type x[],__iterator start,__iterator end){  //  main merge function to sort array.
 	if (start<end){  //  If condition to be executed when array size is greater than 0, else it will be terminated.
-		int mid = (start+end)/2;  //  Find mid of start and end.
+		__iterator mid = (start+end)/2;  //  Find mid of start and end.
 		mergeSort(x,start,mid);   //  Sort first half part.
 		mergeSort(x,mid+1,end);   //  Sort second half part.
 		merge(x,start,mid,end);   //  Merge both parts.
 	}
 }
 
-void mergeSort(int x[],int n){  //  Call main mergeSort function. Cause this function is general function.
+template<typename __data_type>
+void mergeSort(__data_type x[],__iterator n){  //  Call main mergeSort function. Cause this function is general function.
 	mergeSort(x,0,n-1);
 }
 
@@ -119,9 +128,10 @@ void mergeSort(int x[],int n){  //  Call main mergeSort function. Cause this fun
 //  ==================================================
 //  Function to sort array using quick sort algorithm.
 //  ==================================================
-void quickSort(int x[],int start,int end){
+template<typename __data_type>
+void quickSort(__data_type x[],__iterator start,__iterator end){
 	if(start<end){  //  It will executed if start is lessthan end.
-		int i=start+1,j=end;  //  Initialize i and j, value of i is i+1 cause we are considering starting element as pivot.
+		__iterator i=start+1,j=end;  //  Initialize i and j, value of i is i+1 cause we are considering starting element as pivot.
 		while (i<j) {  //  It will be executed till i is lessthan j.
 			while (x[i]<x[start] && i<=end ) i++;  //  Start finding element from left to right which is greaterthan pivot. 
 			while (x[j]>x[start] && j>start) j--;  //  Start finding element from right to left which is lessthan pivot.
@@ -134,7 +144,8 @@ void quickSort(int x[],int start,int end){
 	}
 }
 
-void quickSort(int x[],int n){  //  Calling main quickSort function.
+template<typename __data_type>
+void quickSort(__data_type x[],__iterator n){  //  Calling main quickSort function.
 	quickSort(x,0,n-1);
 }
 
