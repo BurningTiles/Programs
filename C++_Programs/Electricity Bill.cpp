@@ -15,56 +15,61 @@
 #define N 20 // Size for list. you can change.
 
 using namespace std;
-int top=0;
-float unit[N],chrg[N];  // Declaring globle variables for unit and charges.
-char name[N][20];  // Declaring globle variable for name list.
+int top = 0;
+float unit[N], chrg[N]; // Declaring globle variables for unit and charges.
+char name[N][20];		// Declaring globle variable for name list.
 
-float charge(float x){  // Function to calculate charges.
-	float c=(x<=100)?x*0.6:(x<=300)?60+(x-100)*0.8:60+80+(x-300)*0.9;
-	return (c<50)?50:(c>300)?c*1.15:c;
+float charge(float x)
+{ // Function to calculate charges.
+	float c = (x <= 100) ? x * 0.6 : (x <= 300) ? 60 + (x - 100) * 0.8 : 60 + 80 + (x - 300) * 0.9;
+	return (c < 50) ? 50 : (c > 300) ? c * 1.15 : c;
 }
 
 void insert()
 {
-	system("clear");  // It will clear screen. For windows replace "clear" with "cls"
-	if(top>=(N-1))  // Checking if the list is full or not.
+	system("clear");	// It will clear screen. For windows replace "clear" with "cls"
+	if (top >= (N - 1)) // Checking if the list is full or not.
 	{
-		cout<<"List is full.\n";
+		cout << "List is full.\n";
 		return;
 	}
-	cout<<"\nEnter name : ";
-	cin>>name[top];
-	cout<<"Enter units used : ";
-	cin>>unit[top];
-	chrg[top]=charge(unit[top]);
+	cout << "\nEnter name : ";
+	cin >> name[top];
+	cout << "Enter units used : ";
+	cin >> unit[top];
+	chrg[top] = charge(unit[top]);
 	top++;
 }
 
-void result()  // Function to print results.
+void result() // Function to print results.
 {
-	system("clear");  // It will clear screen. For windows replace "clear" with "cls"
-	cout<<"      Name     Units    Charge\n      ----     -----    ------\n";
-	for(int i=0;i<top;i++)
+	system("clear"); // It will clear screen. For windows replace "clear" with "cls"
+	cout << "      Name     Units    Charge\n      ----     -----    ------\n";
+	for (int i = 0; i < top; i++)
 	{
-		cout<<setw(10)<<name[i]<<setw(10)<<unit[i]<<setw(10)<<chrg[i]<<endl;
+		cout << setw(10) << name[i] << setw(10) << unit[i] << setw(10) << chrg[i] << endl;
 	}
-	cout<<endl<<endl<<setfill('-')<<setw(80)<<"-";
+	cout << endl
+		 << endl
+		 << setfill('-') << setw(80) << "-";
 }
 
 int main()
 {
 	int choice;
-	while(1)
+	while (1)
 	{
-		cout<<"\n1.Insert \t2.Result\n";
-		cin>>choice;
-		if (choice==1)	insert();
-		else if (choice==2)
+		cout << "\n1.Insert \t2.Result\n";
+		cin >> choice;
+		if (choice == 1)
+			insert();
+		else if (choice == 2)
 		{
 			result();
 			break;
 		}
-		else cout<<"\nEnter Valid Choice.\n";
+		else
+			cout << "\nEnter Valid Choice.\n";
 	}
 	return 0;
 }
