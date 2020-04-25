@@ -1,3 +1,4 @@
+<!--
 <h1 align="center">
   <br>
   <a href="https://github.com/BurningTiles"><img src="logo.png" width="300"></a>
@@ -5,6 +6,7 @@
   BurningTiles
   <br>
 </h1>
+-->
 
 بٍٍٍٍََُُُِّّّْرٍٍٍٍََُُِِّّّْآٍٍٍَُّ🇮🇹 بٍٍٍٍََُُُِّّّْرٍٍٍٍََُُِِّّّْآٍٍٍَُّ🇮🇹
 
