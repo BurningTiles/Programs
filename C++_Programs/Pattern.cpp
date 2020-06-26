@@ -1,5 +1,5 @@
 /*
- * Author  : BurningTiles
+ * Author  : BurningTiles and KVRaiden
  * Type    : Pattern Program
  */
 
