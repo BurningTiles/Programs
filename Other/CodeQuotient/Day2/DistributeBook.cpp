@@ -7,15 +7,20 @@
 using namespace std;
 
 int main(){
-    ll x[1000001]={1,0,1},n;
+    ll x1=0 , x2=1, temp, n;
     cin >> n;
-    if(n<3){
-        cout << x[n];
-        return 0;
+    if(n==1)
+        cout << x1;
+    else if(n==2)
+        cout << x2;
+    else{
+        for(ll i=3; i<=n; i++){
+            temp = (i-1)*(x1+x2)%100000007;
+            x1 = x2;
+            x2 = temp;
+        }
+        cout << temp;
     }
-    for(ll i=3; i<=n; i++)
-        x[i] = (i-1)*(x[i-1]+x[i-2])%100000007;
-    cout << x[n];
     return 0;
 }
 
