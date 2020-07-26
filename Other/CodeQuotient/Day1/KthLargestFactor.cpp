@@ -11,7 +11,6 @@ using namespace std;
 int main(){
     vector<ll> v;
     ll n, k, i, sqrtn, counter=0;
-    char x;
     cin >> n >> k;
     sqrtn = sqrt(n);
     
