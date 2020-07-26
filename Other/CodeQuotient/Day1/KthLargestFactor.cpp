@@ -10,22 +10,25 @@ using namespace std;
 
 int main(){
     vector<ll> v;
-    ll n,k,i,sqrtn;
+    ll n, k, i, sqrtn, counter=0;
     char x;
-    cin >> n >> x >> k;
+    cin >> n >> k;
     sqrtn = sqrt(n);
-    if(sqrtn*sqrtn==n) {
-            v.push_back(sqrtn);
-            --sqrtn;
-    }
-    for(i=sqrtn; i>0; i--){
-        if(n%i==0){
-            v.insert(v.begin(), i);
-            v.push_back(n/i);
+    
+    for(i=1; i<=sqrtn; i++)
+        if(n%i == 0){
+            ++counter;
+            if(counter == k){
+                cout << n/i;
+                return 0;
+            }
+            v.push_back(i);
         }
-    }
-    if(k<v.size()) cout << v[v.size()-k];
-    else cout << '1';
+
+    k = (n/sqrtn == sqrtn)? 2*v.size()-k-1 : 2*v.size()-k;
+
+    (k > v.size())? cout << '1': cout << v[k];
+    
     return 0;
 }
 
