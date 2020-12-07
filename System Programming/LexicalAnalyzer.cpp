@@ -1,12 +1,3 @@
-/*
- * Program of lexical analyzer.
- * It is for source code written in c language.
- * I've tried to make it as good as real.
- * I know there are too many exeptions, and maybe it'll be solved later when i've free time.
- * This program is os independent.
- * In linux for me it works perfectly.
- */
-
 // Including header files.
 #include <iostream>
 #include <fstream>
