@@ -1,0 +1,26 @@
+25
+1#1#6#Pilot G-2 Retractable Gel Pen#Red#0.7
+2#1#11#BIC Round Stic Ballpoint Pen#Blue#0.5
+3#1#17#TUL Gel Pen#Red#0.9
+4#1#16#Paper Mate Profile Retractable Ballpoint Pen#Black#0.5
+5#1#10#Uni-ball 207 Retractable Fraud Prevention Gel Pen#Green#0.7
+6#1#14#Zebra Z-Grip Retractable Ballpoint Pen#Red#0.9
+7#1#5#FORAY Retractable Ballpoint Pen#Black#0.9
+8#1#14#Sharpie Fine-Point Pen#Black#0.7
+9#1#16#Cross Classic Century Gold-Filled Ballpoint Pen#Black#0.7
+10#1#6#Monteverde Invincia Rose Gold Rollerball Pen#Blue#0.5
+11#2#7#Smead Manila Reinforced Tab Fastener Folders#White#1
+12#2#15#Pendaflex Glow File Folder#Black#0
+13#2#5#JAM Paper Booklet Plastic Envelope#Red#0
+14#2#12#Barker Creek Tab File Folder#Blue#0
+15#2#20#SKILCRAFT Manila Double-Ply Tab Folder#Green#1
+16#2#7#Business Source 2 inch Expanding 2-Ply File Folder#White#1
+17#2#13#Divoga Fashion File Folders#Red#0
+18#2#20#Anglers Kleer-File Organization Folder#Blue#0
+19#2#11#Nature Saver Recycled Folder#Red#1
+20#3#8#Boise X-9 Multi-Use Copy Paper#US Letter#500
+21#3#5#Office Depot Brand Copy & Print Paper#US Letter#500
+22#3#13#Xerox Vitality Multipurpose Printer Paper#US Letter#200
+23#3#6#Hammermill Copy Plus MP Paper#A4#300
+24#3#18#HP Office Ultra White Paper#US Letter#500
+25#3#10#Classic Crest Premium Copy Paper#A4#200
